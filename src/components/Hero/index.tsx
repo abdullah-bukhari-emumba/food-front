@@ -30,12 +30,12 @@ const HeroSection = () => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        padding: "0 20px",
+        padding: "0 10px",
         color: "#FFF",
       }}
     >
       <Container
-        maxWidth="md"
+        maxWidth="lg"
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
@@ -48,9 +48,9 @@ const HeroSection = () => {
           <Typography
             variant="h1"
             sx={{
-              fontSize: { xs: "40px", md: "62px" },
+              fontSize: { xs: "40px", md: "72px" },
               fontWeight: 800,
-              lineHeight: { xs: "48px", md: "93px" },
+              lineHeight: { xs: "48px", md: "90px" },
               marginBottom: "24px",
             }}
           >
@@ -62,7 +62,7 @@ const HeroSection = () => {
             sx={{
               fontSize: "16px",
               fontWeight: 400,
-              lineHeight: "24px",
+              lineHeight: "28px",
               marginBottom: "32px",
             }}
           >
@@ -79,6 +79,7 @@ const HeroSection = () => {
             sx={{
               padding: "16px 48px",
               fontSize: "16px",
+              borderRadius: "0px",
               fontWeight: 700,
               textTransform: "none",
               color: "white",
@@ -95,8 +96,8 @@ const HeroSection = () => {
           sx={{
             marginLeft: { xs: "0", md: "50px" },
             marginTop: { xs: "32px", md: "0" },
-            height: { xs: "300px", md: "600px" },
-            width: { xs: "300px", md: "600px" },
+            height: { xs: "300px", md: "500px" },
+            width: { xs: "300px", md: "500px" },
             animation: "rotate 25s linear infinite",
           }}
         />
