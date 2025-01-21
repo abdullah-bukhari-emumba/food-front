@@ -67,9 +67,21 @@ const AboutUsSection = () => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Box 
-          sx={{ display: "flex", flexDirection: "row", gap: 2 }}
-          >
+          <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
+            <Typography
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                fontFamily: "Pacifico",
+                fontSize: "20px",
+                paddingBottom: "40px",
+                fontWeight: 400,
+                lineHeight: "24px",
+                textUnderlinePosition: "from-font",
+                textDecorationSkipInk: "none",
+              }}
+            >
+              _____
+            </Typography>
             <Typography
               sx={{
                 color: (theme) => theme.palette.primary.main,
