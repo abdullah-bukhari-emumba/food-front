@@ -144,7 +144,7 @@ const FormSection = () => {
       onSubmit={handleSubmit(onSubmit)}
       sx={{
         backgroundColor: "white",
-        p: 4,
+        p: {xs: 0, md: 4},
         height: "100%",
       }}
     >

@@ -11,7 +11,7 @@ const Contact = () => {
         maxWidth="xl"
         sx={{ p: 8, background: "white", width: "100%" }}
       >
-        <Box sx={{ p: 8, background: "white", width: "100%" }}>
+        <Box sx={{ p: { xs: 0, md: 8 }, background: "white", width: "100%" }}>
           <ContactForm.InfoSection />
 
           <Box
