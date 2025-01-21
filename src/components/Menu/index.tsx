@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, Grid, Tabs, Tab, Divider } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Tabs,
+  Tab,
+  Divider,
+  Container,
+} from "@mui/material";
 import foodImg1 from "../../assets/food-image1.jpg";
 import foodImg2 from "../../assets/food-image2.jpg";
 import foodImg3 from "../../assets/food-image3.jpg";
@@ -165,7 +173,10 @@ const MenuSection = () => {
   const [selectedTab, setSelectedTab] =
     useState<keyof typeof menuItems>("breakfast");
 
-  const handleTabChange = (_event: React.SyntheticEvent, newValue: keyof typeof menuItems) => {
+  const handleTabChange = (
+    _event: React.SyntheticEvent,
+    newValue: keyof typeof menuItems
+  ) => {
     setSelectedTab(newValue);
   };
 
@@ -246,19 +257,61 @@ const MenuSection = () => {
         px: { xs: 2, md: 20 },
       }}
     >
-      <Typography
-        variant="body2"
+      <Container
         sx={{
-          fontSize: "18px",
-          color: (theme) => theme.palette.primary.main,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
           textAlign: "center",
-          fontWeight: 600,
-          mb: 1,
-          textTransform: "uppercase",
+          gap: 2,
         }}
       >
-        Food Menu
-      </Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            fontFamily: "Pacifico",
+            alignSelf: "center",
+            fontSize: "20px",
+            color: (theme) => theme.palette.primary.main,
+            textAlign: "center",
+            // fontWeight: 600,
+            mb: 1,
+            // textTransform: "uppercase",
+          }}
+        >
+          ______
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            fontFamily: "Pacifico",
+            fontSize: "20px",
+            color: (theme) => theme.palette.primary.main,
+            textAlign: "center",
+            // fontWeight: 600,
+            mb: 1,
+            // textTransform: "uppercase",
+          }}
+        >
+          Food Menu
+        </Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            fontFamily: "Pacifico",
+            alignSelf: "center",
+            fontSize: "20px",
+            color: (theme) => theme.palette.primary.main,
+            textAlign: "center",
+            // fontWeight: 600,
+            mb: 1,
+            // textTransform: "uppercase",
+          }}
+        >
+          ______
+        </Typography>
+      </Container>
       <Typography
         variant="h2"
         sx={{
