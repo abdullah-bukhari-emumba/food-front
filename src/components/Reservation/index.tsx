@@ -9,7 +9,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import backgroundImage from "../../assets/reservation-form.png"; 
+import backgroundImage from "../../assets/reservation-form.png";
 
 const schema = yup.object().shape({
   name: yup
@@ -22,13 +22,9 @@ const schema = yup.object().shape({
     .required("Email is required"),
   date: yup
     .string()
-    .required("Date is required")
-    .matches(/^\d{2}\/\d{2}\/\d{4}$/, "Date must be in the format DD/MM/YYYY"),
-  time: yup
-    .string()
-    .required("Time is required")
-    .matches(/^\d{2}:\d{2}$/, "Time must be in the format HH:MM"),
-  people: yup
+    .required("Date & Time is required")
+    .matches(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/, "Date & Time must be in the format YYYY-MM-DDTHH:MM"),
+   people: yup
     .number()
     .min(1, "At least 1 person is required")
     .required("No. of people is required"),
@@ -48,7 +44,6 @@ export const ReservationFormSection = () => {
     name: string;
     email: string;
     date: string;
-    time: string;
     people: number;
     specialRequest?: string;
   }
@@ -123,7 +118,9 @@ export const ReservationFormSection = () => {
                     variant="outlined"
                     error={!!errors.name}
                     helperText={errors.name?.message}
-                    InputProps={{ style: { backgroundColor: "#fff" } }}
+                    InputProps={{
+                      style: { backgroundColor: "#fff", color: "#000" },
+                    }}
                   />
                 )}
               />
@@ -141,38 +138,8 @@ export const ReservationFormSection = () => {
                     variant="outlined"
                     error={!!errors.email}
                     helperText={errors.email?.message}
-                    InputProps={{ style: { backgroundColor: "#fff" } }}
-                  />
-                )}
-              />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <Controller
-                name="date"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    fullWidth
-                    {...field}
-                    label="Date & Time"
-                    type="datetime-local"
-                    InputLabelProps={{
-                      shrink: true, 
-                    }}
                     InputProps={{
-                      style: { 
-                        backgroundColor: "#fff", 
-                        color: "gray" 
-                      },
-                    }}
-                    variant="outlined" 
-                    error={!!errors.date}
-                    helperText={errors.date?.message}
-                    sx={{
-                      "& input": {
-                        height: "1.4375em", 
-                      },
+                      style: { backgroundColor: "#fff", color: "#000" },
                     }}
                   />
                 )}
@@ -181,26 +148,64 @@ export const ReservationFormSection = () => {
 
             <Grid item xs={12} md={6}>
               <Controller
-                name="people"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    fullWidth
-                    {...field}
-                    label="No Of People"
-                    select
-                    variant="outlined"
-                    error={!!errors.people}
-                    helperText={errors.people?.message}
-                    InputProps={{ style: { backgroundColor: "#fff" } }}
+              name="date"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                fullWidth
+                {...field}
+                label="Date & Time"
+                type="datetime-local"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: { backgroundColor: "#fff", color: "#000" },
+                }}
+                variant="outlined"
+                error={!!errors.date}
+                helperText={errors.date?.message}
+                sx={{
+                  "& input": {
+                  height: "1.4375em",
+                  },
+                }}
+                />
+              )}
+              />
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Controller
+              name="people"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                fullWidth
+                {...field}
+                label="No Of People"
+                select
+                variant="outlined"
+                error={!!errors.people}
+                helperText={errors.people?.message}
+                InputProps={{
+                  style: { backgroundColor: "#fff", color: "#000" },
+                }}
+                >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                  <MenuItem
+                  key={num}
+                  value={num}
+                  sx={{
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }}
                   >
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                      <MenuItem key={num} value={num}>
-                        People {num}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                )}
+                  {num}
+                  </MenuItem>
+                ))}
+                </TextField>
+              )}
               />
             </Grid>
 
@@ -218,7 +223,9 @@ export const ReservationFormSection = () => {
                     variant="outlined"
                     error={!!errors.specialRequest}
                     helperText={errors.specialRequest?.message}
-                    InputProps={{ style: { backgroundColor: "#fff" } }}
+                    InputProps={{
+                      style: { backgroundColor: "#fff", color: "#000" },
+                    }}
                   />
                 )}
               />
@@ -231,7 +238,7 @@ export const ReservationFormSection = () => {
                 fullWidth
                 disabled={isSubmitting}
                 sx={{
-                  color: theme => theme.palette.text.primary,
+                  color: (theme) => theme.palette.text.primary,
                   padding: "12px 32px",
                   fontSize: "16px",
                   fontWeight: 700,
